@@ -41,7 +41,9 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
         //Check if there is an active network connection to the internet
         if(networkInfo != null && networkInfo.isConnected() && queryString.length()!=0){
+            // Call to execute FetchBook AsyncTask
             new FetchBook(mTitleText, mAuthorText).execute(queryString);
+
             mTitleText.setText(R.string.loading);
             mAuthorText.setText("");
         } else{
